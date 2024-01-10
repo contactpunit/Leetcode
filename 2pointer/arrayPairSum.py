@@ -12,6 +12,8 @@ def findPair(arrayOfNums, targetSum):
             lastPointer -= 1
         elif arrayOfNums[leftPointer] + arrayOfNums[lastPointer] == targetSum:
             return (arrayOfNums[leftPointer], arrayOfNums[lastPointer])
+        elif arrayOfNums[leftPointer] == arrayOfNums[lastPointer]:
+            return -1
     return -1
             
 print(findPair([1, 2, 3, 4, 5], 7)) # [2, 5]
