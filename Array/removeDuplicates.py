@@ -51,8 +51,7 @@ def removeDuplicates(nums):
         else:
             i += 1
             posReplace += 1
-    return posReplace, nums  
-    
+    return posReplace, nums
 
 nums = [0,0,1,1,1,2,2,3,3,4]
 print(removeDuplicates(nums))
