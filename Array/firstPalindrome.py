@@ -23,17 +23,9 @@
 # Explanation: There are no palindromic strings, so the empty string is returned.
 
 def firstPalindrome(words):
+    #  using ythin library
     for word in words:
-        start = 0
-        end = len(word) - 1
-        nomatch = 0
-        while start < end:
-            if word[start] != word[end]:
-                nomatch = 1
-                break
-            start += 1
-            end -= 1
-        if nomatch == 0:
+        if word == word[::-1]:
             return word
     return ""
             
