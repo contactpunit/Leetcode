@@ -22,18 +22,45 @@
  
 def shortestToChar(s, c):
     final = []
-    charidxs =[]
+    size = len(s)
     for idx, char in enumerate(s):
+        start = end = idx
+        found = 0
         if char == c:
-            charidxs.append(idx)
-    if len(charidxs) == 0:
-        return [idx for idx, char in enumerate(s)]
-    for idx, char in enumerate(s):
-        final.append(min([abs(idx - i) for i in charidxs]))
+            final.append(0)
+            continue
+        while start > 0 and end < size -1:
+            start -= 1
+            end += 1
+            if s[start] == c:
+                final.append(abs(idx - start))
+                found = 1
+                break
+            elif s[end] == c:
+                final.append(abs(end - idx))
+                found = 1
+                break
+        if found == 0 and start <= 0:
+            if end < size - 1:
+                while end <= size - 1:
+                    if s[end] == c:
+                        final.append(abs(end - idx))
+                        found = 1
+                        break
+                    end += 1
+        elif found == 0 and end >= size -1:
+            if start > 0:
+                while start >= 0:
+                    if s[start] == c:
+                        final.append(abs(idx - start))
+                        found = 1
+                        break
+                    start -= 1
     return final
-            
 
 s = "loveleetcode"
 c = "e"
-
+print(shortestToChar(s, c))
+s = "aaab"
+c = "b"
 print(shortestToChar(s, c))
