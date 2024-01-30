@@ -21,26 +21,25 @@
  
 def findMaxK(nums):
     nums.sort()
-    maxDigit = -1
+    if nums[0] >= 0:
+        return -1
     i = 0
-    while i < len(nums) - 1 and nums[i] < 0:
-        start = i
-        end = len(nums) - 1
-        while start < end and nums[start] < 0 and nums[end] > 0:
-            absstart = abs(nums[start])
-            absend = abs(nums[end])
-            if absstart == absend:
-                if absstart > maxDigit:
-                    maxDigit = absstart
-                    break
-            end -= 1
-        i += 1
-    return maxDigit
+    j = len(nums)-1
+    while i < j:
+        if nums[i] >= 0:
+            return -1
+        if nums[i]*-1 == nums[j]:
+            return nums[j]
+        if nums[i]*-1 < nums[j]:
+            j-=1
+        else:
+            i+=1
+    return -1
 
 nums = [-1,2,-3,3]
-findMaxK(nums)
+print(findMaxK(nums))
 nums = [-1,10,6,7,-7,1]
-findMaxK(nums)
+print(findMaxK(nums))
 nums = [-10,8,6,7,-2,-3]
-findMaxK(nums)
+print(findMaxK(nums))
 
