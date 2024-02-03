@@ -22,27 +22,20 @@
 from itertools import takewhile
 
 def countBinarySubstrings(s):
-    start = 0
-    beginpart = []
-    endpart = []
-    char = s[0]
-    count = 0
-    while start < len(s):
-        if len(beginpart) > 0:
-            beginpart = endpart[::]
-            endpart = []
-            char = '0' if beginpart[0] == '0' else '1'
+    curr = s[0]
+    curcount = 1
+    prevcount = 0
+    matchcount = 0
+    for elem in s[1:]:
+        if elem == curr:
+            curcount += 1
         else:
-            while start < len(s) and s[start] == char:
-                beginpart.append(s[start])
-                start += 1
-        while start < len(s) and s[start] != char:
-            endpart.append(s[start])
-            start += 1
-        count += min(len(beginpart), len(endpart))
-    print(count)
-        
-        
+            matchcount += min(curcount, prevcount)
+            curr = elem
+            prevcount = curcount
+            curcount = 1
+    matchcount += min(curcount, prevcount)
+    print(matchcount)
 
 s = "10101"
 countBinarySubstrings(s)
