@@ -18,24 +18,27 @@
 # Explanation:
 # It is impossible to make s using a prefix of arr.
  
+from itertools import accumulate
+
 def isPrefixString(s, words):
-    start = 0
-    strlen = len(s)
-    end = strlen - 1
-    for word in words:
-        if start > end:
-            return True
-        for char in word:
-            if start > end:
-                return False
-            elif s[start] != char:
-                return False
-            else:
-                start += 1
-    if start > end:
-        return True
-    else:
-        return False
+    return s in accumulate(words)
+    # start = 0
+    # strlen = len(s)
+    # end = strlen - 1
+    # for word in words:
+    #     if start > end:
+    #         return True
+    #     for char in word:
+    #         if start > end:
+    #             return False
+    #         elif s[start] != char:
+    #             return False
+    #         else:
+    #             start += 1
+    # if start > end:
+    #     return True
+    # else:
+    #     return False
         
 
 s = "iloveleetcode"
