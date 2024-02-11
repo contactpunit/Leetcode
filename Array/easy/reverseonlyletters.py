@@ -33,7 +33,7 @@ def reverseOnlyLetters(s):
                 start += 1
             elif not wordlist[end].isalpha():
                 end -= 1
-    return ''.join(wordlist) 
+    return ''.join(wordlist)
 
 s = "a-bC-dEf-ghIj"
 print(reverseOnlyLetters(s))
