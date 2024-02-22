@@ -39,9 +39,9 @@
 def finalValueAfterOperations(operations):
     X = 0
     for operation in operations:
-        if operation == '--X'or operation == 'X--':
+        if '--' in operation:
             X -= 1
-        elif operation == '++X' or operation == 'X++':
+        elif '++' in operation:
             X += 1
     return X
 
