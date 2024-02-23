@@ -30,7 +30,8 @@
 
 def kidsWithCandies(candies, extraCandies):
     maxval = max(candies)
-    return [True if entry + extraCandies >= maxval else False for entry in candies]
+    thresholdvalue = maxval - extraCandies
+    return [True if entry >= thresholdvalue else False for entry in candies]
 
 candies = [2,3,5,1,3]
 extraCandies = 3
