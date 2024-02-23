@@ -26,7 +26,16 @@
 # There are 0 employees who met the target.
 
 def numberOfEmployeesWhoMetTarget(hours, target):
-    return sum([1 for hour in hours if hour >= target])
+    hours.sort()
+    count = 0
+    i = len(hours) - 1
+    while i >= 0:
+        if hours[i] >= target:
+            count += 1
+        else:
+            break
+        i -= 1
+    return count
 
 hours = [0,1,2,3,4]
 target = 2
