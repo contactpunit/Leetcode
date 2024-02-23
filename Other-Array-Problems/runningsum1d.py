@@ -18,12 +18,11 @@
 # Output: [3,4,6,16,17]
 
 def runningSum(nums):
-    total = 0
-    final = []
-    for elem in nums:
-        total += elem
-        final.append(total)
-    return final
+    # method with time complexty O(n) and space complexity O(1) w/ousingextra array
+    for idx, elem in enumerate(nums):
+        if idx != 0:
+            nums[idx] = elem + nums[idx - 1]
+    return nums
 
 nums = [1,2,3,4]
 print(runningSum(nums))
