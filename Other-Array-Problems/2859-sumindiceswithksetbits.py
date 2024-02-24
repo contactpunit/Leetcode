@@ -32,14 +32,19 @@
 # Hence, the answer is nums[3] = 1.
 
 def sumIndicesWithKSetBits(nums, k):
+    # with O(n) time complexity
+    j = 1
     result = 0
-    i = 0
-    for num in nums:
-        currBinary = bin(i)[2:]
-        i += 1
-        if currBinary.count('1') == k:
-            result += num
+    numlen = len(nums)
+    indexBits = [0] * numlen
+    for i in range(1, numlen):
+        if j * 2 == i:
+            j *= 2
+        indexBits[i] = 1 + indexBits[i - j]
+        if indexBits[i] == k:
+            result+= nums[i]
     return result
+        
 
 nums = [4,3,2,1]
 k = 2
