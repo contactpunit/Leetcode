@@ -25,19 +25,15 @@
 # firstly Bob appends and then Alice appends. So arr = [5,2].
 
 def numberGame(nums):
+    # easier and simple solution
     nums.sort()
-    result = []
-    i = 0
-    j = i + 1
-    while j < len(nums):
-        first = nums[i]
-        second = nums[j]
-        result.append(second)
-        result.append(first)
-        i += 2
-        j = i + 1
-    return result
-        
+    if len(nums) == 0:
+        return nums
+    i = 1
+    while i < len(nums):
+        nums[i], nums[i - 1] = nums[i - 1], nums[i]
+        i+= 2
+    return nums
 
 nums = [5,4,2,3]
 print(numberGame(nums))
