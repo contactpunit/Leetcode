@@ -22,13 +22,10 @@
 
 def decompressRLElist(nums):
     result = []
-    i = 0
-    j = 1
-    numlen = len(nums)
-    while j < numlen:
-        result += [nums[j]] * nums[i]
-        i += 2
-        j = i + 1
+    for i in range(0, len(nums), 2):
+        times = nums[i]
+        subarr = [nums[i + 1]] * nums[i]
+        result += subarr
     return result
         
     
