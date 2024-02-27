@@ -22,6 +22,7 @@
 
 def decompressRLElist(nums):
     result = []
+    numlen = len(nums)
     for i in range(0, len(nums), 2):
         times = nums[i]
         subarr = [nums[i + 1]] * nums[i]
