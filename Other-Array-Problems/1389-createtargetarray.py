@@ -36,16 +36,10 @@
 # Output: [1]
 
 def createTargetArray(nums, index):
-    elem = 0
-    idx = 0
-    numlen = len(nums)
-    numidx =len(index)
-    final = []
-    while elem < numlen and idx < numidx:
-        final.insert(index[idx], nums[elem])
-        elem += 1
-        idx+= 1
-    return final
+    result = []
+    for n, i in zip(nums, index):
+        result[i:i] = [n]
+    return result
 
 nums = [0,1,2,3,4]
 index = [0,1,2,2,1]
