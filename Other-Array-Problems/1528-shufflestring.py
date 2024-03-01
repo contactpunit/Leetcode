@@ -16,11 +16,10 @@
 # Explanation: After shuffling, each character remains in its position.
 
 def restoreString(s, indices):
-    final = [0]*len(indices)
-    zipped = list(zip(s, indices))
-    for pair in zipped:
-        final[pair[1]] = pair[0]
-    return ''.join(final)
+    finalstring = ''
+    for i in range(len(indices)):
+        finalstring += s[indices.index(i)]
+    return finalstring
 
 s = "codeleet"
 indices = [4,5,6,7,0,2,1,3]
