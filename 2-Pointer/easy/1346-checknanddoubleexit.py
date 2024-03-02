@@ -7,7 +7,7 @@
 
 # Example 1:
 
-# Input: arr = [10,2,5, 53]
+# Input: arr = [10,2,5,53]
 # Output: true
 # Explanation: For i = 0 and j = 2, arr[i] == 10 == 2 * 5 == 2 * arr[j]
 # Example 2:
@@ -17,36 +17,12 @@
 # Explanation: There is no i and j that satisfy the conditions.
 
 def checkIfExist(arr):
-    arr.sort()
-    i = 0
-    j = i + 1
-    while i < len(arr) and j < len(arr):
-        if arr[i] < 0:
-            if arr[j] > 0:
-                i = j
-                j += 1
-            elif arr[j] * 2 == arr[i]:
-                return True
-            elif arr[j] * 2 < arr[i]:
-                j += 1
-            elif arr[j] * 2 > arr[i]:
-                i += 1
-            if i == j:
-                j += 1
-        else:
-            if arr[i] == 0:
-                if arr[i] == arr[j]:
-                    return True
-                else:
-                    i += 1
-                    j += 1
-            elif arr[i] * 2 < arr[j]:
-                i += 1
-            elif arr[i] * 2 == arr[j]:
-                return True
-            else:
-                j += 1
+    s = set(arr)
+    for elem in arr:
+        if elem * 2 in s:
+            return True
     return False
+    
 
 arr = [10,2,5,3]
 print(checkIfExist(arr))
@@ -66,5 +42,5 @@ print(checkIfExist(arr))
 arr = [0, 0]
 print(checkIfExist(arr))
 
-arr = [-16,-19]
-print(checkIfExist(arr))
+# arr = [-16,-19]
+# print(checkIfExist(arr))
