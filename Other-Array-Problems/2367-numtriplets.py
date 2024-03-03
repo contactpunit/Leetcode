@@ -24,11 +24,12 @@
 def arithmeticTriplets(nums, diff):
     numset = set(nums)
     count = 0
-    if len(nums) < 3:
+    numlen = len(nums)
+    if numlen < 3:
         return count
     else:
         start = 2
-        while start < len(nums):
+        while start < numlen:
             firstdiff = nums[start] - diff
             seconddiff = nums[start] - (2 * diff)
             if firstdiff in numset and seconddiff in numset:
