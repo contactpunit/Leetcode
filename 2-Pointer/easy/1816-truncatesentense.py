@@ -30,9 +30,17 @@
 # Output: "chopper is not a tanuki"
 
 def truncateSentence(s, k):
-    # using python builtin functions
-    parts = s.split()
-    return ' '.join(parts[:k])
+    # using string manipulation
+    count = 0
+    finalstr = ''
+    for char in s:
+        if char == ' ':
+            count += 1
+            if count == k:
+                return finalstr
+        finalstr += char
+    return finalstr
+    
 
 s = "Hello how are you Contestant"
 k = 4
