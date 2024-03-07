@@ -30,13 +30,21 @@
 # - [3,2,1,5,4]
  
 def countKDifference(nums, k):
+    # using O(n) time complexity
     counter = 0
-    for idx, elem in enumerate(nums):
-        prev = elem - k
-        ahead = elem + k
-        counter += nums[idx + 1:].count(prev)
-        counter += nums[idx + 1:].count(ahead)
-    print(counter)
+    hashmap = {}
+    for elem in nums:
+        if elem not in hashmap:
+            hashmap[elem] = 1
+        else:
+            hashmap[elem] += 1
+    for elem in nums:
+        lowerdiff = elem - k
+        if lowerdiff in hashmap:
+            counter += hashmap[lowerdiff]
+    return counter
+        
+        
 
 nums = [1,2,2,1]
 k = 1
