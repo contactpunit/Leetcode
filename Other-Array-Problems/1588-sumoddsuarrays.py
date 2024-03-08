@@ -28,18 +28,13 @@
 # Output: 66
 
 def sumOddLengthSubarrays(arr):
-    numlen = len(arr)
+    # beautiful solution
     total = 0
-    if numlen == 1:
-        return 1
-    allranges = [i for i in range(1, numlen + 1, 2)]
-    for elem in allranges:
-        i = 0
-        j = i + elem
-        while j < numlen + 1:
-            total += sum(arr[i:j])
-            i += 1
-            j += 1
+    freq = 0
+    arrlen = len(arr)
+    for i in range(arrlen):
+        freq = freq - (i + 1)//2 + (arrlen - i + 1) //2
+        total += freq * arr[i]
     return total
 
 arr = [1,4,2,5,3]
