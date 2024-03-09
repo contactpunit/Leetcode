@@ -17,7 +17,6 @@
 # Explanation: The altitudes are [0,-4,-7,-9,-10,-6,-3,-1]. The highest is 0.
 
 def largestAltitude(gain):
-    i = 0
     highest = 0
     temp = 0
     if gain[0] > highest:
