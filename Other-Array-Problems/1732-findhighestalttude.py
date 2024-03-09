@@ -19,14 +19,9 @@
 def largestAltitude(gain):
     highest = 0
     temp = 0
-    if gain[0] > highest:
-        highest = gain[0]
     for elem in gain:
-        if temp + elem > highest:
-            highest = temp + elem
-            temp = highest
-        else:
-            temp += elem
+        temp += elem
+        highest = max(highest, temp)
     return highest
 
 gain = [-5,1,5,0,-7]
