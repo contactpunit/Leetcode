@@ -27,10 +27,15 @@
 # So, we will return 11.
 # It can be proven, that 11 is the maximum answer that we can achieve.
 
+import math
 def maximizeSum(nums, k):
-    nums.sort()
-    total = 0
-    return sum([nums[-1] + i for i in range(k)])
+    # using arithmatic progression
+    # using AP formulae ---> S(n) = (ai + an/2)n
+    #  here ai ie start is nums[-1] and an is kth element from ai
+    start = max(nums)
+    end = start + k - 1
+    total = ((start + end) / 2) * k
+    return int(total)
 
 nums = [1,2,3,4,5]
 k = 3
