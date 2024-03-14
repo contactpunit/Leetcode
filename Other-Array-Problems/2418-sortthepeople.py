@@ -17,9 +17,14 @@
 # Explanation: The first Bob is the tallest, followed by Alice and the second Bob.
 
 def sortPeople(names, heights):
-    matched = zip(names, heights)
-    sortMatched = sorted(matched, key=lambda a: a[1], reverse=True)
-    return [pair[0] for pair in sortMatched]
+    # uw/o using sort or python lib functions
+    matchMap = dict(zip(names, heights))
+    nameslen = len(names)
+    for i in range(1, nameslen):
+        print(i)
+        if matchMap[names[i - 1]] < matchMap[names[i]]:
+            names[i -1], names[i] = names[i], names[i -1]
+    return names
 
 names = ["Mary","John","Emma"]
 heights = [180,165,170]
