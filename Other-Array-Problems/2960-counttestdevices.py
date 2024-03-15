@@ -39,12 +39,11 @@
 # So, the answer is 2.
 
 def countTestedDevices(batteryPercentages):
-    numdiff = 0
+    # easier approach
     tested = 0
     for elem in batteryPercentages:
-        if elem - numdiff > 0:
+        if tested < elem:
             tested += 1
-            numdiff += 1
     return tested
 
 batteryPercentages = [1,1,2,1,3]
