@@ -47,22 +47,41 @@ class LinkedList:
         self.length += 1
         return True
 
-    def print_list(self):
+    def pop_first(self):
+        if self.head == None:
+            return None
         temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        return temp
+
+    def print_list(self):
+        result = ''
+        temp = self.head
+        if self.head == None:
+            return None
         while temp is not None:
-            print(temp.value)
+            result += f'{str(temp.value)}  '
             temp = temp.next
+        return result
 
 l_list1 = LinkedList(4)
 l_list1.append(5)
 l_list1.append(7)
 l_list1.append(1)
-l_list1.print_list()
+print(l_list1.print_list())
 print(l_list1.pop().value)
-l_list1.print_list()
+print(l_list1.print_list())
 print(l_list1.pop().value)
-l_list1.print_list()
+print(l_list1.print_list())
 print(l_list1.pop().value)
-l_list1.print_list()
+print(l_list1.print_list())
 l_list1.prepend(66)
-l_list1.print_list()
+print(l_list1.print_list())
+l_list1.pop_first()
+l_list1.pop_first()
+l_list1.pop_first()
+print(l_list1.print_list())
