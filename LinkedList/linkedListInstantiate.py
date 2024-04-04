@@ -28,4 +28,11 @@ def insertBeginning():
     newNode = Node('beginning')
     newNode.next = head
     head = newNode
-    
+
+def insertEnd():
+    endNode = Node('end')
+    pointer = head
+    while pointer.next == None:
+        pointer = pointer.next
+    pointer.next = endNode
+    pointer = head
