@@ -36,3 +36,15 @@ def insertEnd():
         pointer = pointer.next
     pointer.next = endNode
     pointer = head
+
+def insertMiddle(after = 'beginning'):
+    pointer = head
+    while pointer:
+        if pointer.value == after:
+            midNode = Node('mid')
+            midNode.next = pointer.next
+            pointer.next = midNode
+            break
+        else:
+            pointer = pointer.next
+    pointer = head
