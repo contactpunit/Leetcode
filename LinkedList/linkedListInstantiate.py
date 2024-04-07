@@ -48,3 +48,44 @@ def insertMiddle(after = 'beginning'):
         else:
             pointer = pointer.next
     pointer = head
+
+def updateNode(target, newValue):
+    curr = head
+    while curr:
+        if curr.value == target:
+            curr.value = newValue
+            break
+        curr = curr.next
+
+def deleteNode(head, val):
+    prev = head
+    curr = head.next
+    while curr:
+        if curr.value == val:
+            prev.next = curr.next
+            curr.next = None
+            return curr
+        prev = curr
+        curr = curr.next
+
+def removeFirst(head):
+    if not head:
+        return None
+    curr = head
+    head = head.next
+    curr.next = None
+    return curr
+
+def removeLastNode(head):
+    if not head:
+        return None
+    prev = head
+    curr = prev.next
+    if not curr.next:
+        prev.next = None
+        return curr
+    while curr.next:
+        prev = curr
+        curr = curr.next
+    prev.next = None
+    return curr
