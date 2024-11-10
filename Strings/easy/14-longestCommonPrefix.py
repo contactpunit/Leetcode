@@ -13,3 +13,16 @@
 # Input: strs = ["dog","racecar","car"]
 # Output: ""
 # Explanation: There is no common prefix among the input strings.
+
+
+def longestCommonPrefix(strs) -> str:
+    counter = 0
+    for i in zip(*strs):
+        result = all(element == i[0] for element in i)
+        if result:
+            counter += 1
+        else:
+            return strs[0][:counter]
+    return strs[0][:counter]
+
+print(longestCommonPrefix(strs = ["flower","flow","flight"]))
